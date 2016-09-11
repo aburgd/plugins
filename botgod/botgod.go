@@ -19,7 +19,7 @@ func botgod(command *bot.PassiveCmd) (string, error) {
   possible := []string{
     "you've gotta be shitting me " + issuer,
     issuer + "i swear to myself",
-    "do you have a church? hm, " + issuer + "?"
+    "do you have a church? hm, " + issuer + "?",
   }
 
   if re.MatchString(command.Raw) {
