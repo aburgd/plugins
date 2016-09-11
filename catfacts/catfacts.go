@@ -9,7 +9,7 @@ import (
 
 const (
 	pattern   = "(?i)\\b(cat|gato|miau|meow|garfield|lolcat)[s|z]{0,1}\\b"
-	msgPrefix = "I love cats! Here's a fact: %s"
+	msgPrefix = "here's a damn fact about cats: %s"
 )
 
 type facts struct {

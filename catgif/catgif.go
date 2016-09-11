@@ -3,6 +3,7 @@ package catgif
 import (
 	"github.com/go-chat-bot/bot"
 	"net/http"
+  "fmt"
 )
 
 func gif(command *bot.Cmd) (msg string, err error) {
@@ -10,7 +11,8 @@ func gif(command *bot.Cmd) (msg string, err error) {
 	if err != nil {
 		return "", err
 	}
-	return res.Request.URL.String(), nil
+  msg = fmt.Sprintf("here's your freaking cat gif: ", res.Request.URL.String())
+	return
 }
 
 func init() {

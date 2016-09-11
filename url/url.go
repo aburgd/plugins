@@ -7,6 +7,7 @@ import (
 	"net/url"
 	"regexp"
 	"strings"
+  "log"
 )
 
 const (
@@ -18,9 +19,14 @@ var (
 )
 
 func canBeURLWithoutProtocol(text string) bool {
-	return len(text) > minDomainLength &&
-		!strings.HasPrefix(text, "http") &&
-		strings.Contains(text, ".")
+  matched, err := regexp.MatchString("[a-z0-9]\\.(com|edu|gov|net|org|co|me)", text)
+  if err != nil{
+    log.Fatal("shit happened ", err)
+  }
+
+  return len(text) > minDomainLength &&
+    !strings.HasPrefix(text, "http") &&
+    matched
 }
 
 func extractURL(text string) string {

@@ -87,7 +87,9 @@ func gif(command *bot.Cmd) (msg string, err error) {
 	}
 
 	index := rand.Intn(len(data.Data))
-	return fmt.Sprintf(data.Data[index].Images.FixedHeight.URL), nil
+  result := data.Data[index].Images.FixedHeight.URL
+  msg = fmt.Sprintf("here's your freaking gif: ", result)
+	return
 }
 
 func init() {
