@@ -7,7 +7,7 @@ import (
 )
 
 const (
-  pattern = "(I am|eng13 is|you are)(the|a)(botgod)|(bot god)"
+  pattern = "((I|i) (am|AM)|(eng13|ENG13|eng|ENG) (is|IS)|((you|YOU|You)|(they|They|THEY)) (are|ARE)) ((the|THE)|(a|A)) (botgod|bot god|BOTGOD|BOT GOD)"
 )
 
 var (
@@ -18,7 +18,7 @@ func botgod(command *bot.PassiveCmd) (string, error) {
   issuer := command.User.Nick
   possible := []string{
     "you've gotta be shitting me " + issuer,
-    issuer + "i swear to myself",
+    issuer + " i swear to myself",
     "do you have a church? hm, " + issuer + "?",
   }
 
