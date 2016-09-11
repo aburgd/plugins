@@ -21,10 +21,9 @@ func botgod(command *bot.PassiveCmd) (string, error) {
     issuer + "i swear to myself",
     "do you have a church? hm, " + issuer + "?"
   }
-  reply := possible[rand.Intn(len(possible))], nil
 
   if re.MatchString(command.Raw) {
-    return reply + issuer, nil
+    return possible[rand.Intn(len(possible))], nil
   }
   return "", nil
 }
