@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	pattern   = "(?i)\\b(cat|gato|miau|meow|garfield|lolcat)[s|z]{0,1}\\b"
+	pattern   = "(?i)\\b(cat|gato|miau|meow|garfield|lolcat|missekat|pusekatt|kissekatt|kisu|kisa|mjau|mja|mjá|nau|mau|kitty)[s|z]{0,1}\\b"
 	msgPrefix = "here's a damn fact about cats: %s"
 )
 
