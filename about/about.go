@@ -13,7 +13,7 @@ func about(command *bot.Cmd) (msg string, err error) {
       return "shit happened", err
     }
 
-    msg = fmt.Sprintf("if you haven't already, here's the damn article ", skip)
+    msg = fmt.Sprintf("if you haven't already, here's the damn article %s", skip)
     return
 }
 

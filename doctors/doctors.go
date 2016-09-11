@@ -12,7 +12,7 @@ func doctors(command *bot.Cmd) (msg string, err error) {
     return "shit happened", err
   }
 
-  msg = fmt.Sprintf("ah shit, you're one of them? goddammit fine. here: ",
+  msg = fmt.Sprintf("ah shit, you're one of them? goddammit fine. here: %s",
     hub)
   return
 }

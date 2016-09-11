@@ -11,7 +11,7 @@ func gif(command *bot.Cmd) (msg string, err error) {
 	if err != nil {
 		return "", err
 	}
-  msg = fmt.Sprintf("here's your freaking cat gif: ", res.Request.URL.String())
+  msg = fmt.Sprintf("here's your freaking cat gif: %s", res.Request.URL.String())
 	return
 }
 
