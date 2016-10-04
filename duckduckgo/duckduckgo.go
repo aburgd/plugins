@@ -1,10 +1,10 @@
 package duckduckgo
 
 import (
+  "github.com/go-chat-bot/bot"
+  "github.com/pkg/errors"
 	"encoding/json"
 	"fmt"
-	"github.com/go-chat-bot/bot"
-	"github.com/pkg/errors"
 	"log"
 	"net/http"
 	// "net/url"
