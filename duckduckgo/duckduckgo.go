@@ -132,3 +132,11 @@ func duckduckgo(command *bot.Cmd) (msg string, err error) {
 	msg = fmt.Sprintf("here's the gist: %s", record.AbstractText)
 	return
 }
+
+func init() {
+	bot.RegisterCommand(
+		"duckduckgo",
+		"queries a search on DuckDuckGo",
+		"",
+		duckduckgo)
+}
