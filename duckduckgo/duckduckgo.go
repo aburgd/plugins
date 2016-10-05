@@ -129,7 +129,8 @@ func duckduckgo(command *bot.Cmd) (msg string, err error) {
 		log.Println(err)
 	}
 
-	msg = fmt.Sprintf("here's the gist: %s", record.Abstract)
+	msg = fmt.Sprintf("here's the gist: %s", record.AbstractText)
+  msg += fmt.Sprintf("from %s", record.AbstractSource)
 	return
 }
 

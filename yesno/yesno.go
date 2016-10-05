@@ -33,7 +33,7 @@ func yesno(command *bot.Cmd) (msg string, err error) {
     log.Println(err)
   }
 
-  msg = fmt.Sprintf("all signs point to %s", record.Image)
+  msg = fmt.Sprintf("all signs point to %s %s", record.Answer, record.Image)
   return
 }
 
