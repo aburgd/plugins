@@ -2,19 +2,39 @@ package yesno
 
 import (
 	"fmt"
+  "log"
 	"net/http"
+  "encoding/json"
 
 	"github.com/go-chat-bot/bot"
 )
 
-func yesno(command *bot.Cmd) (msg string, err error) {
-	res, err := http.Get("https://yesno.wtf/api")
-	if err != nil {
-		return "shit happened", err
-	}
+type yesnoresp struct {
+	Answer string `json:"answer"`
+	Forced bool `json:"forced"`
+	Image string `json:"image"`
+}
 
-	msg = fmt.Sprintf("all signs point to %s", res.Request.URL.String())
-	return
+func yesno(command *bot.Cmd) (msg string, err error) {
+  req, err := http.NewRequest("Get", "https://yesno.wtf/api", nil)
+  if err != nil {
+    return "shit happened", err
+  }
+  client := &http.Client{}
+  resp, err := client.Do(req)
+  if err != nil {
+    return "shit happened", err
+  }
+  defer resp.Body.Close()
+
+  var record yesnoresp
+
+  if err := json.NewDecoder(resp.Body).Decode(&record); err != nil {
+    log.Println(err)
+  }
+
+  msg = fmt.Sprintf("all signs point to %s", record.Image)
+  return
 }
 
 func init() {
