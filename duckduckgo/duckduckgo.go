@@ -106,8 +106,8 @@ type ddg struct {
 }
 
 func duckduckgo(command *bot.Cmd) (msg string, err error) {
-
-	url := fmt.Sprintf("http://api.duckduckgo.com/?q=" + command.Args[0] + "&format=json&pretty=1")
+  query := command.Args[0:]
+	url := fmt.Sprintf("http://api.duckduckgo.com/?q=%s&format=json&pretty=1", query)
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
