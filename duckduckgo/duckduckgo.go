@@ -121,7 +121,7 @@ func duckduckgo(command *bot.Cmd) (msg string, err error) {
 		err = errors.Wrap(err, "Do failed")
 		return "problem", err
 	}
-	defer resp.Body.Close()
+	// defer resp.Body.Close()
 
 	var record ddg
 
@@ -131,6 +131,7 @@ func duckduckgo(command *bot.Cmd) (msg string, err error) {
 
 	msg = fmt.Sprintf("here's the gist: %s", record.AbstractText)
   msg += fmt.Sprintf("from %s", record.AbstractSource)
+  defer resp.Body.Close()
 	return
 }
 
