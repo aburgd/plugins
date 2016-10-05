@@ -2,14 +2,14 @@ package yesno
 
 import (
 	"fmt"
-  "log"
+  // "log"
 	"net/http"
-  "encoding/json"
+  // "encoding/json"
 
 	"github.com/go-chat-bot/bot"
 )
 
-type yesnoresp struct {
+type yesnorecord struct {
 	Answer string `json:"answer"`
 	Forced bool `json:"forced"`
 	Image string `json:"image"`
@@ -27,13 +27,14 @@ func yesno(command *bot.Cmd) (msg string, err error) {
   }
   defer resp.Body.Close()
 
-  var record yesnoresp
+  var record yesnorecord
+  msg = fmt.Sprintf("%+v", record)
 
-  if err := json.NewDecoder(resp.Body).Decode(&record); err != nil {
-    log.Println(err)
-  }
-
-  msg = fmt.Sprintf("all signs point to %s %s", record.Answer, record.Image)
+  // if err := json.NewDecoder(resp.Body).Decode(&record); err != nil {
+  //   log.Println(err)
+  // }
+  //
+  // msg = fmt.Sprintf("all signs point to %s %s", record.Answer, record.Image)
   return
 }
 
