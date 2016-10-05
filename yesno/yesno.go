@@ -16,7 +16,7 @@ type yesnorecord struct {
 }
 
 func yesno(command *bot.Cmd) (msg string, err error) {
-  req, err := http.NewRequest("Get", "https://yesno.wtf/api", nil)
+  req, err := http.NewRequest("GET", "https://yesno.wtf/api", nil)
   if err != nil {
     return "shit happened", err
   }
