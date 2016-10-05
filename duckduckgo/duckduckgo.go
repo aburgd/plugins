@@ -7,10 +7,11 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+  "strings"
 	// "net/url"
 )
 
-type ddg struct {
+type ddgrecord struct {
 	DefinitionSource string `json:"DefinitionSource"`
 	Heading          string `json:"Heading"`
 	ImageWidth       int    `json:"ImageWidth"`
@@ -106,8 +107,9 @@ type ddg struct {
 }
 
 func duckduckgo(command *bot.Cmd) (msg string, err error) {
-  query := command.Args[0:]
-	url := fmt.Sprintf("http://api.duckduckgo.com/?q=%s&format=json&pretty=1", query)
+  args := command.Args[0:]
+  query := strings.Join(args, " ")
+	url := fmt.Sprintf("http://api.duckduckgo.com/?q=" + query + "&format=json&pretty=1")
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
@@ -123,7 +125,7 @@ func duckduckgo(command *bot.Cmd) (msg string, err error) {
 	}
 	// defer resp.Body.Close()
 
-	var record ddg
+	var record ddgrecord
 
 	if err := json.NewDecoder(resp.Body).Decode(&record); err != nil {
 		log.Println(err)
