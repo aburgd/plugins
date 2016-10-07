@@ -79,7 +79,7 @@ func duckgo(command *bot.Cmd) (msg string, err error) {
 
 func init() {
 	bot.RegisterCommand(
-		"duckduckgo",
+		"ddg",
 		"queries a search on DuckDuckGo",
 		"",
 		duckgo)
