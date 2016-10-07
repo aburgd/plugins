@@ -131,8 +131,7 @@ func duckgo(command *bot.Cmd) (msg string, err error) {
 		log.Println(err)
 	}
 
-	msg = fmt.Sprintf("here's the gist: %s", record.AbstractText)
-  msg += fmt.Sprintf("from %s", record.AbstractSource)
+	msg = fmt.Sprintf("here's the gist: %s", record.AbstractURL)
   defer resp.Body.Close()
 	return
 }
