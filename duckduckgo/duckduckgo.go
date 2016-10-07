@@ -106,7 +106,7 @@ type ddgrecord struct {
 	Results        []interface{} `json:"Results"`
 }
 
-func duckduckgo(command *bot.Cmd) (msg string, err error) {
+func duckgo(command *bot.Cmd) (msg string, err error) {
   args := command.Args[0:]
   query := strings.Join(args, " ")
 	url := fmt.Sprintf("http://api.duckduckgo.com/?q=" + query + "&format=json&pretty=1")
@@ -142,5 +142,5 @@ func init() {
 		"duckduckgo",
 		"queries a search on DuckDuckGo",
 		"",
-		duckduckgo)
+		duckgo)
 }
