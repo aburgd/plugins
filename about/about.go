@@ -12,7 +12,7 @@ func about(command *bot.Cmd) (msg string, err error) {
     if err != nil {
       return "shit happened", err
     }
-    if command.User.Nick == "ghostpage" || command.User.Nick == "TyGently" {
+    if command.User.Nick == "ghostpage" || command.User.Nick == "TyGently" || command.User.Nick == "eng13" {
       msg = fmt.Sprintf("if I'm broken, please contact my owner with the subject line %s at %s", subjectLine, email)
     } else {
       msg = fmt.Sprint("sorry, you're not allowed to do that!")
