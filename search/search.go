@@ -1,4 +1,4 @@
-package duckduckgo
+package search
 
 import (
   "github.com/go-chat-bot/bot"
@@ -79,7 +79,7 @@ func duckgo(command *bot.Cmd) (msg string, err error) {
 
 func init() {
 	bot.RegisterCommand(
-		"ddg",
+		"search",
 		"queries a search on DuckDuckGo",
 		"",
 		duckgo)
